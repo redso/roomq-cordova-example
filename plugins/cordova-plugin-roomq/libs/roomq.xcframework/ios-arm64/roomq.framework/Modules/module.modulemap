@@ -1,0 +1,11 @@
+framework module roomq {
+  umbrella header "roomq-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module roomq.Swift {
+    header "roomq-Swift.h"
+    requires objc
+}

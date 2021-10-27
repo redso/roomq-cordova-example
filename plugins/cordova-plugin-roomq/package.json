@@ -1,0 +1,26 @@
+{
+  "name": "cordova-plugin-roomqplugin",
+  "version": "0.0.1",
+  "description": "An Android Cordova plugin that allows users to integrate with RoomQ SDK",
+  "cordova": {
+    "id": "cordova-plugin-roomqplugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova-android",
+    "cordova-ios",
+    "ecosystem:cordova",
+    "noq",
+    "roomq"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "license": "MIT"
+}

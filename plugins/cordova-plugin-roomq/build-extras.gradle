@@ -1,0 +1,19 @@
+android {
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        compileSdkVersion 29
+        androidXCore "1.6.0"
+    }
+
+   packagingOptions {
+       exclude 'META-INF/NOTICE'
+       exclude 'META-INF/LICENSE'
+   }
+
+   sourceSets {
+        main.java {
+            srcDirs += 'src/main/kotlin'
+        }
+    }
+}

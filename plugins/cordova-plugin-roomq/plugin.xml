@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-roomq" version="0.0.1">
+
+  <name>RoomQPlugin</name>
+
+  <description>An Android Cordova plugin that allows users to integrate with RoomQ SDK</description>
+
+  <license>MIT</license>
+
+  <keywords>cordova,android,ios,roomq</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+    <engine name="cordova-android" version=">=7.0.0"/>
+  </engines>
+
+  <js-module src="www/roomqplugin.js" name="roomqPlugin">
+    <clobbers target="window.plugins.roomqPlugin"/>
+  </js-module>
+
+  <platform name="android">
+    <!-- Permission notes -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Android Resources -->
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="RoomQPlugin">
+        <param name="android-package" value="hk.noq.cordova.plugin.RoomQPlugin"/>
+      </feature>
+    </config-file>
+
+    <config-file target="res/values/strings.xml" parent="/*">
+      <string name="roomq_waiting_room_name">RoomQ Waiting Room</string>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity 
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode" 
+        android:label="@string/roomq_waiting_room_name" 
+        android:launchMode="singleTop" 
+        android:name="hk.noq.roomq.WaitingRoomActivity"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" 
+        android:windowSoftInputMode="adjustResize"
+      >
+        <intent-filter android:label="@string/launcher_name">
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>   
+    </config-file>
+    
+    <!-- Project source files -->
+    <source-file src="src/android/RoomQPlugin.kt" target-dir="app/src/main/kotlin/hk/noq/cordova/plugin"/>
+    
+    <!-- Android shared dependencies -->
+    <framework src="src/android/RoomQPlugin.gradle" custom="true" type="gradleReference" />
+    
+    <!-- RoomQ library -->
+    <lib-file src="libs/roomq-debug.aar" /> 
+    <resource-file src="libs/roomq-debug.aar" target="../../libs/roomq-debug.aar" />
+  </platform>
+
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/*" >
+      <feature name="RoomQPlugin">
+        <param name="ios-package" value="RoomQPlugin" />
+      </feature>
+    </config-file>
+
+    <!-- Project source files -->
+    <source-file src="src/ios/RoomQPlugin.swift"/>
+
+    <!-- RoomQ library -->
+    <framework src="libs/roomq.xcframework" custom="true" embed="true" />
+  </platform>
+</plugin>

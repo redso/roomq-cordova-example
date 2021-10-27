@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"RoomQPlugin\"><param name=\"ios-package\" value=\"RoomQPlugin\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "hk.noq.roomqplugintest"
+    },
+    "cordova-plugin-roomq": {
+      "PACKAGE_NAME": "hk.noq.roomqplugintest"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-roomq.roomqPlugin",
+      "file": "plugins/cordova-plugin-roomq/www/roomqplugin.js",
+      "pluginId": "cordova-plugin-roomq",
+      "clobbers": [
+        "window.plugins.roomqPlugin"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-add-swift-support": "2.0.2",
+    "cordova-plugin-roomq": "0.0.1"
+  }
+}

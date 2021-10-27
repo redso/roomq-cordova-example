@@ -1,0 +1,33 @@
+{
+  "name": "hk.noq.roomqplugintest",
+  "displayName": "RoomQPluginTest",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cordova-andorid",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^9.1.0",
+    "cordova-ios": "^6.2.0",
+    "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-roomqplugin": "file:../RoomQPlugin"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-roomq": {},
+      "cordova-plugin-add-swift-support": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

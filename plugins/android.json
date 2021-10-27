@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "hk.noq.roomqplugintest"
+    },
+    "cordova-plugin-roomq": {
+      "PACKAGE_NAME": "hk.noq.roomqplugintest"
+    }
+  },
+  "dependent_plugins": {}
+}
