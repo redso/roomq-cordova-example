@@ -432,38 +432,52 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?
     ```
 
 1.  Make sure you have your AppTheme in `styles.xml` and colour constants in `colors.xml` in your android, and have already configure your `config.xml` to include those files into your Cordova-Android and define the languages used in different platforms.
-    `styles.xml`
-    `xml <resources> <!-- Base application theme. --> <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> <!-- Customize your theme here. --> <item name="colorPrimary">@color/colorPrimary</item> <item name="colorPrimaryDark">@color/colorPrimaryDark</item> <item name="colorAccent">@color/colorAccent</item> </style> </resources> `
 
-            `colors.xml` for example
+    styles.xml
 
-            ```xml
-            <?xml version="1.0" encoding="utf-8"?>
-            <resources>
-            		<!-- Customize your color resources here. -->
-                <color name="colorPrimary">#FFBB86FC</color>
-                <color name="colorPrimaryDark">#FF6200EE</color>
-                <color name="colorAccent">#FF3700B3</color>
-            </resources>
-            ```
+    ```xml
+    <resources>
+    	<!-- Base application theme. -->
+    	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        	<!-- Customize your theme here. -->
+        	<item name="colorPrimary">@color/colorPrimary</item>
+        	<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        	<item name="colorAccent">@color/colorAccent</item>
+    	</style>
+    </resources>
+    ```
 
-            `config.xml`
+    colors.xml for example
 
-            ```xml
-            <platform name="android" kotlin="1.3.50">
-                <allow-intent href="market:*" />
-                <preference name="GradlePluginKotlinEnabled" value="true" />
-                <preference name="GradlePluginKotlinCodeStyle" value="official" />
-                <preference name="GradlePluginKotlinVersion" value="1.3.50" />
-                <preference name="AndroidXEnabled" value="true" />
-                <resource-file src="./android_xml/styles.xml" target="app/src/main/res/values/styles.xml" />
-                <resource-file src="./android_xml/colors.xml" target="app/src/main/res/values/colors.xml" />
-            </platform>
-            <platform name="ios">
-                <allow-intent href="itms:*" />
-                <allow-intent href="itms-apps:*" />
-                <preference name="UseSwiftLanguageVersion" value="5" />
-            </platform>
-            ```
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+    		<!-- Customize your color resources here. -->
+        <color name="colorPrimary">#FFBB86FC</color>
+        <color name="colorPrimaryDark">#FF6200EE</color>
+        <color name="colorAccent">#FF3700B3</color>
+    </resources>
+    ```
 
-    If you encounter Unsupported Swift Version popup from Xcode to suggest you to use Xcode 10.1 to migrate the code to Swift 4, you have to set the Swift Language Version to Swift 5 in Build Settings for your plugin targets.
+    config.xml
+
+    ```xml
+    <platform name="android" kotlin="1.3.50">
+        <allow-intent href="market:*" />
+        <preference name="GradlePluginKotlinEnabled" value="true" />
+        <preference name="GradlePluginKotlinCodeStyle" value="official" />
+        <preference name="GradlePluginKotlinVersion" value="1.3.50" />
+        <preference name="AndroidXEnabled" value="true" />
+        <resource-file src="./android_xml/styles.xml" target="app/src/main/res/values/styles.xml" />
+        <resource-file src="./android_xml/colors.xml" target="app/src/main/res/values/colors.xml" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <preference name="UseSwiftLanguageVersion" value="5" />
+    </platform>
+    ```
+
+## Troubleshoot
+
+- If you encounter Unsupported Swift Version popup from Xcode to suggest you to use Xcode 10.1 to migrate the code to Swift 4, you have to set the Swift Language Version to Swift 5 in Build Settings for your project targets.
