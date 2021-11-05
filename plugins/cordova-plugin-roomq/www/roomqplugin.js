@@ -5,17 +5,7 @@ var initInProgress = false;
 
 var ROOMQ_PLUGIN_NAME = "RoomQPlugin";
 
-function RoomQPlugin() {
-  // The value will be passed as a first argument into execute function in Andorid and as a function name in iOS.
-  this.actionTypes = {
-    INIT: "initRoomQ",
-    ENQUEUE: "enqueue",
-    GET_EXPIRY_TIME: "getExpiryTime",
-    EXTEND_SESSION: "extendSession",
-    DELETE_SESSION: "deleteSession",
-    SET_TOKEN: "setClientToken",
-  };
-}
+function RoomQPlugin() {}
 
 //Here to define js function to interact with JAVA module by calling cordova.exec
 RoomQPlugin.prototype.initRoomQ = function (
@@ -71,8 +61,8 @@ RoomQPlugin.prototype.initRoomQ = function (
           errorCallback(error1);
         },
         ROOMQ_PLUGIN_NAME,
-        this.actionTypes.EXTEND_SESSION,
-        [1]
+        "enqueue",
+        []
       );
     },
     function (error) {
@@ -81,7 +71,7 @@ RoomQPlugin.prototype.initRoomQ = function (
       errorCallback(error);
     },
     ROOMQ_PLUGIN_NAME,
-    this.actionTypes.INIT,
+    "initRoomQ",
     [clientID]
   );
 };
@@ -99,7 +89,7 @@ RoomQPlugin.prototype.enqueue = function (successCallback, errorCallback) {
       errorCallback(error);
     },
     ROOMQ_PLUGIN_NAME,
-    this.actionTypes.ENQUEUE,
+    "enqueue",
     []
   );
 };
@@ -120,7 +110,7 @@ RoomQPlugin.prototype.getExpiryTime = function (
       errorCallback(error);
     },
     ROOMQ_PLUGIN_NAME,
-    this.actionTypes.GET_EXPIRY_TIME,
+    "getExpiryTime",
     []
   );
 };
@@ -142,7 +132,7 @@ RoomQPlugin.prototype.extendSession = function (
       errorCallback(error);
     },
     ROOMQ_PLUGIN_NAME,
-    this.actionTypes.EXTEND_SESSION,
+    "extendSession",
     [minutes]
   );
 };
@@ -163,7 +153,7 @@ RoomQPlugin.prototype.deleteSession = function (
       errorCallback(error);
     },
     ROOMQ_PLUGIN_NAME,
-    this.actionTypes.DELETE_SESSION,
+    "deleteSession",
     []
   );
 };
@@ -185,7 +175,7 @@ RoomQPlugin.prototype.setClientToken = function (
       errorCallback(error);
     },
     ROOMQ_PLUGIN_NAME,
-    this.actionTypes.SET_TOKEN,
+    "setClientToken",
     [token]
   );
 };
