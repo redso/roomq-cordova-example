@@ -49,7 +49,7 @@
 
 5. Make sure you have your AppTheme in `styles.xml` and colour constants in `colors.xml` in your android, and have already configure your `config.xml` to include those files into your Cordova-Android and define the languages used in different platforms.
 
-   You can create a xml folder to include all the required xml resources
+   You can create a xml folder in the project directory to include all the required xml resources
 
    ```bash
    mkdir android_xml
