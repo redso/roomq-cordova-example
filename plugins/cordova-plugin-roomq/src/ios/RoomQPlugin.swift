@@ -32,20 +32,20 @@ import roomq
     }
     
     self.roomq.enqueue { [weak self] result in
-    switch result {
-      case let .wait(vc, token):
-        self?.showWaitingRoom(vc)
-      case let .enter(source, token):
-        switch source {
-          case .directly, .error:
-            NSLog("enter normal flow")
-          default:
-            NSLog("enter normal flow")
-        }
-      case let .error(error):
-        NSLog(error.localizedDescription)
-    }
-    self.emit(command.callbackId, result: CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "The plugin succeeded"))
+      switch result {
+        case let .wait(vc, token):
+          self?.showWaitingRoom(vc)
+        case let .enter(source, token):
+          switch source {
+            case .directly, .error:
+              NSLog("enter normal flow")
+            default:
+              NSLog("enter normal flow")
+          }
+        case let .error(error):
+          NSLog(error.localizedDescription)
+      }
+      self?.emit(command.callbackId, result: CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "The plugin succeeded"))
     }
   }
     
@@ -58,8 +58,8 @@ import roomq
     }
     
     let token = command.arguments[0] as! String
-    
-    self.roomq.set(token: token)
+    RoomQ.set(token: token)
+
     self.emit(command.callbackId, result: CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "Client token is set"))
   }
     
@@ -93,7 +93,7 @@ import roomq
       return
     }
     
-    let minutes = command.arguments[0] as Int
+    let minutes = command.arguments[0] as! Int
     
     self.roomq.extendSession(minutes: minutes) { [weak self] result in
       switch result {
@@ -101,8 +101,6 @@ import roomq
           NSLog("case 1: the session is extended successfully")
         case .expired:
           NSLog("case 2: the session is already expired before extension, to proceed to waiting room, please call enqueue again")
-        case .invalidExtension:
-          NSLog("case 3: the session is not extended because the specified extension duration is invalid")
         case .serverError:
           NSLog("case 4: Error occur in SDK")
       }

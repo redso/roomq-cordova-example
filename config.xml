@@ -33,7 +33,5 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <preference name="UseLegacySwiftLanguageVersion" value="true" />
-        <preference name="UseSwiftLanguageVersion" value="5" /> 
     </platform>
 </widget>

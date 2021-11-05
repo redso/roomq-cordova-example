@@ -61,6 +61,19 @@ RoomQPlugin.prototype.initRoomQ = function (
       hasInitialized = true;
       console.log(result);
       successCallback(result);
+
+      exec(
+        function (result1) {
+          successCallback(result1);
+        },
+        function (error1) {
+          console.log(JSON.stringify(error1));
+          errorCallback(error1);
+        },
+        ROOMQ_PLUGIN_NAME,
+        this.actionTypes.EXTEND_SESSION,
+        [1]
+      );
     },
     function (error) {
       initInProgress = false;
